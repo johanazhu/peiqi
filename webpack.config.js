@@ -7,7 +7,8 @@ module.exports = {
     entry: './src/js/app.js',
     output: {
         path: __dirname + '/build',
-        filename: 'js/index.js'
+        filename: 'js/app.js',
+        publicPath: '/'
     },
     plugins: [
       new  HtmlWebpackPlugin({
@@ -15,5 +16,19 @@ module.exports = {
           template: 'src/index.html'
       })
     ],
+    module: {
+      rules: [
+          {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: [
+                  {
+                      loader: "babel-loader"
+                  }
+              ]
+          }
+      ]
+    },
+    devtool: 'source-map',
     watch: true
 }

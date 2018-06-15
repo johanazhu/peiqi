@@ -1,13 +1,13 @@
 
-import add from './add';
-import $ from 'jquery';
 
-let app = 'hello ,world';
+import React from 'react';
+import {render} from 'react-dom';
 
-console.log(app);
+import Home from './home'
 
-console.log(add(1,2))
 
-$("#btn1").on('click', function(){
-    console.log(add(3, 10));
-})
+render(
+    <h1>hello, world2 <Home/></h1>,document.getElementById("app")
+)
+
+// console.log($);
