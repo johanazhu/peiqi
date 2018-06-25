@@ -1,13 +1,11 @@
 
 import add from './add';
-import $ from 'jquery';
 
-let app = 'hello ,world';
+import React from 'react';
+import {render} from 'react-dom';
+import Home from './home';
 
-console.log(app);
 
-console.log(add(1,2))
-
-$("#btn1").on('click', function(){
-    console.log(add(2, 4));
-})
+render(
+    <div>hello ,world,<Home/></div>,document.getElementById('peiqi')
+)

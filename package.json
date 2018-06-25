@@ -4,15 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "rm -rf build & gulp webpack"
   },
   "author": "johan",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.6"
+    "webpack-cli": "^3.0.8",
+    "webpack-stream": "^4.0.3"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   }
 }
