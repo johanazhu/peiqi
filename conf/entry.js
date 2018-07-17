@@ -4,6 +4,6 @@
 
 
 module.exports = {
-    base: ['react', 'react-dom', 'classnames', 'react-router', 'axios'],
+    base: ['react', 'react-dom', 'classnames', 'react-router', 'axios', 'mobx', 'mobx-react'],
     app: './src/app.js'
 };

@@ -1,22 +1,18 @@
-
 import './scss/index.scss';
 
 import React from 'react';
 import {render} from 'react-dom';
-import Home from './home';
-import {$_ajax} from 'services'
+import {Router} from 'react-router';
+import history from './history';
+import Pages from './pages'
 
-function App(){
-    return (
-        <div>
-            hello,world,
-            <button className={'btn'} onClick={()=>{
-                $_ajax.get();
-    }}>BTN</button>
-        </div>
-    )
-}
+
+
+
 
 render(
-    <App/>, document.getElementById('peiqi')
+    <Router history={history}>
+        <Pages/>
+    </Router>,
+    document.getElementById('peiqi')
 )
