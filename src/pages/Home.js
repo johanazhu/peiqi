@@ -2,127 +2,135 @@
  * Created by Johan on 2018/7/7.
  */
 import React from 'react';
-import PeiqiChart from '../components/chart';
+import {PeiQiChart} from '../components'
+import {observer, inject} from 'mobx-react'
 
-console.log(PeiqiChart);
-
+@inject('UserStore')
+@observer
 class Demo extends React.Component {
 
-    componentWillReceiveProps(props){
-        console.log(this.props, props)
+    constructor(props){
+        super()
+        console.log(props.UserStore)
     }
 
     render(){
         return (
-            <h2>{this.props.name}</h2>
+            <div>我是{this.props.UserStore.user.name}</div>
         )
     }
 }
 
-export default class extends React.Component {
+export default class Home extends React.Component {
+
+    chart = null
+
     constructor() {
         super()
-
         this.state = {
-            name: 'ddo',
-            chart: {
-                title: {
-                    text: '堆叠区域图'
-                },
-                tooltip : {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#6a7985'
-                        }
-                    }
-                },
-                legend: {
-                    data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-                },
-                toolbox: {
-                    feature: {
-                        saveAsImage: {}
-                    }
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis : [
-                    {
-                        type : 'category',
-                        boundaryGap : false,
-                        data : ['周一','周二','周三','周四','周五','周六','周日']
-                    }
-                ],
-                yAxis : [
-                    {
-                        type : 'value'
-                    }
-                ],
-                series : [
-                    {
-                        name:'邮件营销',
-                        type:'line',
-                        stack: '总量',
-                        areaStyle: {normal: {}},
-                        data:[120, 132, 101, 134, 90, 230, 210]
-                    },
-                    {
-                        name:'联盟广告',
-                        type:'line',
-                        stack: '总量',
-                        areaStyle: {normal: {}},
-                        data:[220, 182, 191, 234, 290, 330, 310]
-                    },
-                    {
-                        name:'视频广告',
-                        type:'line',
-                        stack: '总量',
-                        areaStyle: {normal: {}},
-                        data:[150, 232, 201, 154, 190, 330, 410]
-                    },
-                    {
-                        name:'直接访问',
-                        type:'line',
-                        stack: '总量',
-                        areaStyle: {normal: {}},
-                        data:[320, 332, 301, 334, 390, 330, 320]
-                    },
-                    {
-                        name:'搜索引擎',
-                        type:'line',
-                        stack: '总量',
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'top'
-                            }
-                        },
-                        areaStyle: {normal: {}},
-                        data:[820, 932, 901, 934, 1290, 1330, 1320]
-                    }
-                ]
-            }
+            name: '韩波',
+            option: {}
         }
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                option: {
+                    title: {
+                        text: '堆叠区域图'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    legend: {
+                        data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '邮件营销',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [120, 132, 101, 134, 90, 230, 210]
+                        },
+                        {
+                            name: '联盟广告',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [220, 182, 191, 234, 290, 330, 310]
+                        },
+                        {
+                            name: '视频广告',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [150, 232, 201, 154, 190, 330, 410]
+                        },
+                        {
+                            name: '直接访问',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [320, 332, 301, 334, 390, 330, 320]
+                        },
+                        {
+                            name: '搜索引擎',
+                            type: 'line',
+                            stack: '总量',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
+                            areaStyle: {normal: {}},
+                            data: [820, 932, 901, 934, 1290, 1330, 1320]
+                        }
+                    ]
+                }
+            })
+        }, 1000)
+    }
 
     render() {
         return (
             <div>
-                我叫韩波{this.state.name}
-                <input type="text" onChange={(e) => {
-                    this.setState({
-                        name: e.target.value
-                    })
-                }}/>
+                <h1>test</h1>
                 <Demo name={this.state.name}/>
-                <PeiqiChart data={this.state.chart}/>
+                <PeiQiChart option={this.state.option} onInitChart={(chart)=>{
+                    this.chart1 = chart
+                }}/>
             </div>
         )
     }

@@ -2,11 +2,13 @@
  * Created by Johan on 2018/6/25.
  */
 
-import {observable, action} from 'mobx';
+import {observable, action} from 'mobx'
 
 class UserStore {
-    @observable user = {};
-    @observable isLogin = false;
+    @observable user = {
+        name: 'Peiqi'
+    }
+    @observable isLogin = false
 
     @action
     initUser(res) {
@@ -15,8 +17,8 @@ class UserStore {
     }
 
     @action
-    deleteUser() {
-        this.user = null;
+    deleteUser(res){
+        this.user = {}
         this.isLogin = false
     }
 }
