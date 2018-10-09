@@ -7,7 +7,7 @@ import qs from 'query-string'
 
 function init(h){
     const {pathname, search} = h.location;
-    console.log(pathname, search);
+    // console.log(pathname, search);
 }
 
 const history = createHistory();

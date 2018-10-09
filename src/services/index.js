@@ -5,3 +5,4 @@
 // import $_ajax  from './ajax';
 
 export $_ajax from './ajax'
+export $_localstorage from './localstorage'

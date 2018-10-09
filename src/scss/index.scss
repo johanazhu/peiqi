@@ -1,4 +1,11 @@
 
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/font-awesome/css/font-awesome.min.css";
+@import "../assets/css/AdminLTE.min.css";
+@import "../assets/css/_all-skins.min.css";
+//公共部分
 @import "reset";
 @import "skin";
+//组件样式
+@import "components/checkbox";
 @import "chart";

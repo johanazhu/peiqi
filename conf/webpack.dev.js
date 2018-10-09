@@ -62,6 +62,18 @@ module.exports = {
                         loader: 'sass-loader'
                     }
                 ]
+            },
+            {
+                test: /\.(woff|svg|eot|ttf|woff2)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'font/[name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     }
