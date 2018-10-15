@@ -11,6 +11,7 @@ export default ({match}) => {
     return (
         <Switch>
             <Route path={`${match.url}/home`} component={Home}></Route>
+            <Route path={`${match.url}/movie`} component={require('./movie/router')}></Route>
             <Route component={() => (<div>404</div>)}></Route>
         </Switch>
     )
